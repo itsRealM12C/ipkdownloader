@@ -1,0 +1,158 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPK Downloader</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="#2c3e50"/>
+                    <path d="M30,30 L70,30 L70,70 L30,70 Z" stroke="#ecf0f1" fill="none" stroke-width="4"/>
+                    <path d="M40,40 L60,40 L60,60 L40,60 Z" fill="#3498db"/>
+                    <path d="M25,50 L75,50" stroke="#ecf0f1" stroke-width="4"/>
+                    <path d="M50,25 L50,75" stroke="#ecf0f1" stroke-width="4"/>
+                </svg>
+                <h1>IPK Downloader</h1>
+            </div>
+            <p class="tagline">Download LG Smart TV apps directly to your device</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-download"></i> Download IPK</h2>
+                </div>
+                <div class="card-body">
+                    <div class="input-section">
+                        <input type="text" id="url-input" placeholder="Enter app URL (e.g., https://gb.lgappstv.com/main/tvapp/detail?appId=95384...)">
+                        <button id="generate-btn">Download IPK</button>
+                    </div>
+                    
+                    <div class="status-section">
+                        <div class="status-indicator">
+                            <div class="status-dot"></div>
+                            <span id="status-text">Ready</span>
+                        </div>
+                        <div id="loading-animation" class="hidden">
+                            <div class="loading-spinner"></div>
+                        </div>
+                    </div>
+
+                    <div id="app-info-box" class="app-info hidden">
+                        <div class="app-info-header">
+                            <div class="app-icon-placeholder">
+                                <i class="fas fa-tv"></i>
+                            </div>
+                            <div class="app-details">
+                                <h3 id="app-name">App Name</h3>
+                                <span id="app-id">ID: ----</span>
+                            </div>
+                        </div>
+                        <div class="download-progress">
+                            <div class="progress-bar">
+                                <div id="progress-fill"></div>
+                            </div>
+                            <div class="download-stats">
+                                <span id="download-percentage">0%</span>
+                                <span id="download-size">-- MB</span>
+                            </div>
+                        </div>
+                        <div class="download-actions">
+                            <button id="download-btn" class="hidden"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h2><i class="fas fa-info-circle"></i> How It Works</h2>
+                </div>
+                <div class="card-body">
+                    <p>Our system works 24/7 behind the scenes to fetch the apps you want to download:</p>
+                    <ol>
+                        <li>Enter the URL of the LG TV app you want to download</li>
+                        <li>Click "Download IPK"</li>
+                        <li>Wait for our system to fetch and process the app</li>
+                        <li>The IPK file will be automatically downloaded to your device</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h2><i class="fas fa-file-archive"></i> IPK File Structure</h2>
+                </div>
+                <div class="card-body">
+                    <div class="file-structure">
+                        <div class="file-item">
+                            <span class="file-icon">📦</span>
+                            <span class="file-name">IPK File</span>
+                            <div class="file-children">
+                                <div class="file-item">
+                                    <span class="file-icon">📁</span>
+                                    <span class="file-name">data.tar.gz</span>
+                                    <div class="file-children">
+                                        <div class="file-item">
+                                            <span class="file-icon">📁</span>
+                                            <span class="file-name">data.tar</span>
+                                            <div class="file-children">
+                                                <div class="file-item">
+                                                    <span class="file-icon">📁</span>
+                                                    <span class="file-name">.</span>
+                                                    <div class="file-children">
+                                                        <div class="file-item">
+                                                            <span class="file-icon">📁</span>
+                                                            <span class="file-name">usr</span>
+                                                            <div class="file-children">
+                                                                <div class="file-item">
+                                                                    <span class="file-icon">📁</span>
+                                                                    <span class="file-name">palm</span>
+                                                                    <div class="file-children">
+                                                                        <div class="file-item">
+                                                                            <span class="file-icon">📁</span>
+                                                                            <span class="file-name">applications</span>
+                                                                            <div class="file-children">
+                                                                                <div class="file-item">
+                                                                                    <span class="file-icon">📄</span>
+                                                                                    <span class="file-name">appinfo.json</span>
+                                                                                </div>
+                                                                                <div class="file-item">
+                                                                                    <span class="file-icon">🖼️</span>
+                                                                                    <span class="file-name">icon.png</span>
+                                                                                </div>
+                                                                                <div class="file-item">
+                                                                                    <span class="file-icon">🖼️</span>
+                                                                                    <span class="file-name">splash.png</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>IPK Downloader &copy; 2023 - Working 24/7 for your downloading needs</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
