@@ -41,6 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'https://github.com/itsRealM12C/listofipkfiles/raw/refs/heads/main/com.wwe.app.wwenetwork.ipk';
             return;
         }
+
+        // Check if it's the YouTube app URL
+        if (url.includes('appId=95384')) {
+            window.location.href = 'https://github.com/itsRealM12C/listofipkfiles/raw/refs/heads/main/youtube.leanback.v4.ipk';
+            return;
+        }
         
         // Check if it's the Klebo Hub app URL
         if (url.includes('appId=1247978')) {
